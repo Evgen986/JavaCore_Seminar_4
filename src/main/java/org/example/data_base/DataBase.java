@@ -73,7 +73,6 @@ public class DataBase {
         if (clientData != null) {
             for (Account accountClient : clientData) {
                 if (accountClient.equals(account)) {
-                    account = accountClient;
                     throw new AccountAlreadyExistsException("Счет уже существует!");
                 }
             }
@@ -82,9 +81,9 @@ public class DataBase {
 
     /**
      * Служебный метод получения индекса в листе хранения счетов клиента.
-     * @param client
-     * @param account
-     * @return
+     * @param client объект клиента.
+     * @param account объект счета.
+     * @return индекс в списке счетов.
      */
     private int indexAccountExists(Client client, Account account){
         List <Account> clientData = getClientData(client);
